@@ -1,3 +1,4 @@
+- [raspberry-pi-os](https://github.com/s-matyukevich/raspberry-pi-os)
 - [rpi baremetal tutorial](https://www.youtube.com/watch?v=mCuxbI0FqzM&list=PLVxiWMqQvhg9FCteL7I0aohj1_YiUx1x8&index=19)
 - [rpi baremetal source code](https://github.com/rockytriton/LLD/tree/main/rpi_bm/part17)
 
