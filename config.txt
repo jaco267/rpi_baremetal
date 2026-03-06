@@ -1,0 +1,9 @@
+arm_64bit=1
+enable_uart=1
+uart_2ndstage=1
+dtoverlay=pi3-disable-bt
+
+armstub=armstub-new.bin
+
+init_uart_clock=48000000
+kernel=kernel8.img
