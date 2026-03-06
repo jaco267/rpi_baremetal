@@ -1,5 +1,5 @@
 #pragma once
-
+//* done
 //D1.10.2
 #define SYNC_INVALID_EL1t		0 
 #define IRQ_INVALID_EL1t		1 
@@ -23,3 +23,17 @@
 
 //stack frame size
 #define S_FRAME_SIZE			256
+
+/*
+
+entry.S : .align	11, vector table 總大小 = 2048 bytes, 16 × 128 = 2048
+
+在 EL1 有兩種 stack pointer：
+EL1t	use SP_EL0
+EL1h	use SP_EL1
+
+0x000   
+0x080=0000 1000 0000    = 128 bytes = 2^7 bytes
+0x100=0001 0000 0000                = 2*128 bytes
+0x180=0001 1000 0000                = 3*128 bytes
+*/

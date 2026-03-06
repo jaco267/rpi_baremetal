@@ -30,6 +30,15 @@ void memzero(unsigned long src, unsigned int n);
 */
 
 /*
+PAGE_SHIFT = 12 → 頁大小 4 KB (1 << 12)
+TABLE_SHIFT = 9 → 每層頁表 512 entry
+SECTION_SHIFT = PAGE_SHIFT + TABLE_SHIFT = 21 → 每個 section 大小 = 1 << 21 = 2 MB
+
+LOW_MEMORY = 2 * SECTION_SIZE = 4 MB
+
+stack pointer 被設到 0x400000 (4 MB)。
+
+
 高位址            
 0x40_0000        stack 往下長
                      |
@@ -45,6 +54,6 @@ code memory      Unused code memory (unused sram)
                  .data (initialized global and static var)
                  .rodata  
                  .text  
-0x08_0000      vector table      
+0x0             vector table      
 低位址         
 */
