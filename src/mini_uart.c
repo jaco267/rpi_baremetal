@@ -18,7 +18,7 @@ void uart_init(void){
     REGS_AUX->mu_ier = 0xD;      // 4. interrupt  0xD=13 = 0x1101
     REGS_AUX->mu_baud_rate = 270; // 5. baud rate (115200)
     // 6. 設 GPIO14,15 為 ALT5 (UART1)
-    gpio_pin_set_func(14, GFAlt5); //GFAlt5 = 2
+    gpio_pin_set_func(14, GFAlt5); //GFAlt5 = 2 設定為 TXD1 see RPI_docs.ipynb ##6.2 alternative function assignment
     gpio_pin_set_func(15, GFAlt5);
     gpio_pin_enable(); // 7. disable pull-up/down
     REGS_AUX->mu_control = 3;  // 8. enable tx/rx
@@ -39,5 +39,5 @@ void uart_send_string(const char* s){
 /*p15 data ready*/
 char uart_recv(){  //haven't not test yet
     while(!(REGS_AUX->mu_lsr & 1));
-    return REGS_AUX->mu_io & 0xFF;
+    return REGS_AUX->mu_io & 0xFF;  //read 最後一個 byte
 }

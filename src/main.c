@@ -30,12 +30,10 @@ void main(void) {
     printf("\nUART OK!\n");
     printf("\nRasperry PI 3B+ Bare Metal OS Initializing gogo...\n");
 
-    gpio_pin_set_func(21,GFOutput); //*LED gpio21
+    gpio_pin_set_func(21,GFOutput); //*LED gpio21 //*done
     volatile uint32_t* gpio = (uint32_t*)GPIO_BASE;
     // 拉高 GPIO21 (led)
     gpio[GPSET0/4] = (1 << 21);
-
-    
     //setup interrrupts
     irq_init_vectors();
     enable_interrupt_controller();

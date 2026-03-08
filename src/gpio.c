@@ -22,5 +22,15 @@ void gpio_pin_set_func(uint8_t pinNumber, GpioFunc func){
     //ex gpio 21         select_reg = 21/10=2  bitStart 21*3 %30 = 63%30=3
     selector &= ~(7<<bitStart);  //clearout 3 bits
     selector |= (func << bitStart); //ex func=GFOutput -> 1<<bitStart
+    /*                                 if alt func select register 0  
+     000=GPIO Pin input  把 func       Bits 27~29 GPIOpin9 start=3*9=27
+     001=GPIO Pin output 推到 bit start     24~26 GPIOpin8 start=3*8=24
+     100=GPIO Pin Alt0                       ...
+     101=GPIO Pin Alt1                       0~3  GPIOpin0 
+     110=GPIO Pin Alt2
+     111=GPIO Pin Alt3
+     011=GPIO Pin Alt4
+     010=GPIO Pin Alt5
+    */
     REGS_GPIO->func_select[reg] = selector; 
 }
