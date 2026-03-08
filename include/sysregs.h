@@ -1,5 +1,5 @@
 #pragma once
-
+//* almost
 //D13.2.113 (page 3396)   M, bit [0] 在 page 3409 (MMU enable) //* done
 //設定 MMU disable, little_endian 等等
 #define SCTLR_RESERVED                  (3 << 28) | (3 << 22) | (1 << 20) | (1 << 11)
@@ -25,7 +25,7 @@
 #define SCR_NS                          (1 << 0)
 #define SCR_VALUE                       (SCR_RESERVED | SCR_RW | SCR_NS)
 
-//C5.2.19
+//C5.2.19  SPSR_EL3
 //   6 54   3210 
 //0111 00   0101
 #define SPSR_MASK_ALL                   (7 << 6)
@@ -37,4 +37,23 @@
 在 EL1 有兩種 stack pointer：
 EL1t	use SP_EL0
 EL1h	use SP_EL1
+對於 C5.2.19 SPSR_EL3 來說  
+M[3:0] 是用來設定 AArch64 Exception level 和 stack pointer 的   
+AArch64 Exception level and selected Stack Pointer.
+
+0b0000     EL0t.
+0b0100     EL1t.
+0b0101=5   EL1h.
+0b1000     EL2t.
+0b1001=9   EL2h.
+0b1100     EL3t.
+0b1101     EL3h.
+
+ELx + (t 或 h)  
+ELx → 要執行的 Exception Level
+t / h → 使用哪個 stack pointer
+在 AArch64，每個 EL 有 兩種 stack pointer 模式：
+模式       使用的 Stack Pointer
+t (thread)	SP_EL0           通常給 user space el0 使用
+h (handler)	SP_ELx           給kernel space 使用
 */

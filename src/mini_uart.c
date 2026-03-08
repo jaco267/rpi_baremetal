@@ -14,8 +14,8 @@ void uart_init(void){
     // volatile uint32_t* aux  = (uint32_t*)AUX_BASE;
     REGS_AUX->enables = 1; // 1. enable mini uart
     REGS_AUX->mu_control = 0;  // 2. disable tx/rx during config
-    REGS_AUX->mu_lcr = 3;      // 3. 8-bit mode
-    REGS_AUX->mu_ier = 0xD;      // 4. interrupt
+    REGS_AUX->mu_lcr = 3;      // 3. 8-bit mode 
+    REGS_AUX->mu_ier = 0xD;      // 4. interrupt  0xD=13 = 0x1101
     REGS_AUX->mu_baud_rate = 270; // 5. baud rate (115200)
     // 6. 設 GPIO14,15 為 ALT5 (UART1)
     gpio_pin_set_func(14, GFAlt5); //GFAlt5 = 2

@@ -1,7 +1,7 @@
 #pragma once 
 #include "base.h"
 #include "common.h"
-
+//* done bcm2835 2.1 aux: overview
 struct AuxRegs {//7E215000(AUX_BASE)+
     reg32 irq_status; //7E21 5000
     reg32 enables;    //7E21 5004  (4byte = 32 bit)  AUX_ENABLES=AUX_BASE+0x04
