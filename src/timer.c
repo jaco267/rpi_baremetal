@@ -24,7 +24,7 @@ void handle_timer_1() {
     REGS_TIMER->compare[1] = cur_val_1;
     REGS_TIMER->control_status |= SYS_TIMER_IRQ_1;
 
-    printf("Timer 1 received.\n");
+    // printf("Timer 1 received.\n");
 }
 
 void handle_timer_3() {
