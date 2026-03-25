@@ -2,6 +2,11 @@
 - [rpi baremetal tutorial](https://www.youtube.com/watch?v=mCuxbI0FqzM&list=PLVxiWMqQvhg9FCteL7I0aohj1_YiUx1x8&index=19)
 - [rpi baremetal source code](https://github.com/rockytriton/LLD/tree/main/rpi_bm/part17)
 
+### rpi 文檔
+- 在 z_docs/ RP-bcm2835...
+- 是從 [rpi documentation](https://github.com/raspberrypi/documentation/tree/06100e7b07e9bd6d585f276b14fdac93a741b625/documentation/asciidoc/computers/processors)   下載
+
+
 ```
        RPi gpio pin  
    3.3 v---1  2    5v   
@@ -44,15 +49,16 @@ ls /dev/tty*
 # 應該會看到 ttyusb0   
 正確流程是先把rpi 插頭拔掉  
 在斷電狀態下  
-sudo screen /dev/ttyUSB0 115200
+sudo picocom -b 115200 /dev/ttyUSB0
+
 插上rpi 插頭  就可以看到 boot code 
 # MESS:00:00:02.362362:0: Device tree loaded to 
 # Rasperry PI Bare Metal OS Initializing...
 # Blame...
 # Blame...
 # Blame...
-ctrl+A
-k
+Ctrl + A
+Ctrl + X
 # sudo screen /dev/ttyUSB0 115200,cs8,-ixon,-ixoff,-crtscts
 # 好像要等很久才會看到 login   
 # 要記得把 cmdline.txt 的 quiet 那些刪掉  才能看到很多 很酷的log

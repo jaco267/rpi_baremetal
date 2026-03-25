@@ -6,6 +6,8 @@
 #include "printf.h"
 #include "irq.h"
 #include "timer.h"
+#include "i2c.h"
+
 void putc(void *p, char c) {
     if (c == '\n') {
         uart_send('\r');
@@ -41,21 +43,35 @@ void main(void) {
     
     timer_init();   
     printf("\nException Level: %d\n", get_el());
-    printf("sleeping 200 ms...\n");
-    timer_sleep(200);
-    printf("sleeping 200 ms...\n");
-    timer_sleep(200);
-    printf("sleeping 200 ms...\n");
-    timer_sleep(200);
-    printf("sleeping 2 seconds...\n");
-    timer_sleep(2000);
-
-    printf("sleeping 2 seconds...\n");
-    timer_sleep(2000);
-
-    printf("sleeping 5 seconds...\n");
-    timer_sleep(5000);
+    printf("sleeping 1 seconds...\n");
+    timer_sleep(1000);
     printf("Done!\n");
+    
+    printf("Initializing I2C...\n");
+    i2c_init();
+    // for (int i=0; i<10; i++) {
+    //     char buffer[10];
+    //     i2c_recv(21, buffer, 9);
+    //     buffer[9] = 0;
+
+    //     printf("Received: %s\n", buffer);
+
+    //     timer_sleep(250);
+    // }
+
+    for (u8 d=0; d<20; d++) {
+        i2c_send(21, &d, 1);
+        timer_sleep(250);
+        printf("Sent: %d\n", d);
+    }
+
+    char *msg = "Hello Slave Device";
+    i2c_send(21, msg, 18);
+
+
+    printf("DONE!\n");
+    
+
     while(1) {
         // uart_send(uart_recv());  //這樣我們就可以打字了
     }

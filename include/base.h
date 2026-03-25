@@ -1,2 +1,4 @@
 #pragma once
 #define MMIO_BASE 0x3F000000UL
+#define PBASE 0x3F000000
+#define CORE_CLOCK_SPEED 1500000000

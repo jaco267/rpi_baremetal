@@ -15,21 +15,20 @@ enum vc_irqs {
     SYS_TIMER_IRQ_3 = 8,
     AUX_IRQ = (1 << 29)
 };
-
+//* bcm rpi docs  7.5 interrupt registers
 struct arm_irq_regs_2837 {
-    reg32 irq0_pending_0;
-    reg32 irq0_pending_1;
-    reg32 irq0_pending_2;
-    reg32 fiq_control;
-    reg32 irq0_enable_1;
-    reg32 irq0_enable_2;
-    reg32 irq0_enable_0;
-    reg32 res;
+    reg32 irq0_pending_0; //200
+    reg32 irq0_pending_1; //204
+    reg32 irq0_pending_2; //208
+    reg32 fiq_control;    //20C
+    reg32 irq0_enable_1;  //210
+    reg32 irq0_enable_2;  //214
+    reg32 irq0_enable_0;  //218
+    reg32 res; //??? 不對吧  應該沒有 reserve?
     reg32 irq0_disable_1;
     reg32 irq0_disable_2;
     reg32 irq0_disable_0;
 };
-
 
 typedef struct arm_irq_regs_2837 arm_irq_regs;
 
