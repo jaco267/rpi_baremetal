@@ -8,27 +8,27 @@
 
 
 ```
-       RPi gpio pin  
-   3.3 v---1  2    5v   
- GPIO  2   3  4    5v          
- GPIO  3   5  6 ---gnd         黑線 ----
- GPIO  4   7  8 ---GPIO 14     白線    |-----tty2usb cable
-     gnd   9  10---GPIO 15     綠色線---
- GPIO 17---11 12---GPIO 18 
- GPIO 27---13 14---gnd          
- GPIO 22---15 16---gpio23      
-   3.3v ---17 18---gpio24           
- GPIO 10---19 20---gnd  
- GPIO  9---21 22---gpio25    
- GPIO 11---23 24---gpio8         
-     gnd   25 26---gpio7       
- GPIO  0---27 28---gpio1 
- GPIO  5---29 30---gnd 
- GPIO  6---31 32---gpio12
- GPIO 13   33 34---gnd
- GPIO 19   35 36---GPIO 16 
- GPIO 26---37 38---GPIO 20
-    gnd    39 40---GPIO 21 ....led
+                  RPi gpio pin  
+              3.3 v---1  2    5v   
+  i2c(SDA)--GPIO  2   3  4    5v          
+  i2c(SCL)--GPIO  3   5  6 ---gnd     ---黑線 ----
+            GPIO  4   7  8 ---GPIO 14 ---白線    |-----tty2usb cable
+                gnd   9  10---GPIO 15 ---綠色線---
+            GPIO 17---11 12---GPIO 18 
+            GPIO 27---13 14---gnd          
+            GPIO 22---15 16---gpio23      
+              3.3v ---17 18---gpio24           
+ spi(MOSI)--GPIO 10---19 20---gnd  
+ spi(MISO)--GPIO  9---21 22---gpio25    
+ spi(SCLK)--GPIO 11---23 24---gpio8--(CE0)(spi)         
+                gnd   25 26---gpio7--(CE1)(spi)       
+            GPIO  0---27 28---gpio1 
+            GPIO  5---29 30---gnd 
+            GPIO  6---31 32---gpio12
+            GPIO 13   33 34---gnd
+            GPIO 19   35 36---GPIO 16 
+            GPIO 26---37 38---GPIO 20
+  spi/i2c gnd---gnd---39 40---GPIO 21 ....led
 ```
 
 ```sh

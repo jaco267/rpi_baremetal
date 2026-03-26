@@ -56,3 +56,12 @@ void timer_sleep(u32 ms) {
 
     }
 }
+
+//sleep in mus.
+void timer_sleep_mus(u32 mus) {
+    u64 start = timer_get_ticks();
+
+    while(timer_get_ticks() < start + (mus)) {
+
+    }
+}

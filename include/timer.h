@@ -6,4 +6,5 @@ void timer_init();
 void handle_timer_1();
 void handle_timer_3();
 void timer_sleep(u32 ms);
+void timer_sleep_mus(u32 mus);
 u64 timer_get_ticks();
