@@ -9,6 +9,8 @@
 #define AUX_MU_LSR_REG  0x54
 #define AUX_MU_CNTL_REG 0x60
 #define AUX_MU_BAUD_REG 0x68
+
+void gpio_pin_enable();
 void uart_init(void);
 void uart_send(char c);
 void uart_send_string(const char* s);

@@ -2,7 +2,7 @@
 #include "peripherals/spi.h"
 #include "gpio.h"
 #include "printf.h"
-
+#include "miniuart.h"
 void spi_init() {
     gpio_pin_set_func(7, GFAlt0); //CS1  
     // gpio_pin_set_func(8, GFAlt0); //CS0  -> CS  (red)  

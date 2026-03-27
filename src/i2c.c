@@ -2,7 +2,7 @@
 #include "peripherals/i2c.h"
 #include "i2c.h"
 #include "printf.h"
-
+#include "miniuart.h"
 #define I2C_SPEED 100000
 
 void i2c_init() {
